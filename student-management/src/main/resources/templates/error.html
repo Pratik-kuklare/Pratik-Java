@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Student Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-graduation-cap me-2"></i>Student Management System
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+                <a class="nav-link" href="/students"><i class="fas fa-users me-1"></i>Students</a>
+                <a class="nav-link" href="/marks"><i class="fas fa-chart-line me-1"></i>Marks</a>
+                <a class="nav-link" href="/reports"><i class="fas fa-file-alt me-1"></i>Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h4><i class="fas fa-exclamation-triangle me-2"></i>Error Occurred</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger">
+                            <h5>Status Code: <span th:text="${statusCode}">500</span></h5>
+                            <p><strong>Error Message:</strong> <span th:text="${errorMessage}">An unexpected error occurred</span></p>
+                            <div th:if="${requestUri}">
+                                <p><strong>Request URI:</strong> <span th:text="${requestUri}"></span></p>
+                            </div>
+                            <div th:if="${exception}">
+                                <p><strong>Exception:</strong> <span th:text="${exception.class.simpleName}"></span></p>
+                                <p><strong>Details:</strong> <span th:text="${exception.message}"></span></p>
+                            </div>
+                            <div th:unless="${exception}">
+                                <p><em>No exception details available</em></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h6>Possible Solutions:</h6>
+                            <ul>
+                                <li>Check if the database is running and accessible</li>
+                                <li>Verify that all required data exists</li>
+                                <li>Try refreshing the page</li>
+                                <li>Go back to the previous page and try again</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="/" class="btn btn-primary me-2">
+                                <i class="fas fa-home me-1"></i>Go to Home
+                            </a>
+                            <button onclick="history.back()" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Go Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

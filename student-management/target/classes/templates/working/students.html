@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Students - Student Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="/working/students">
+                <i class="fas fa-graduation-cap me-2"></i>Working Version - Student Management
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/working/students"><i class="fas fa-users me-1"></i>Students</a>
+                <a class="nav-link" href="/working/marks"><i class="fas fa-chart-line me-1"></i>Marks</a>
+                <a class="nav-link" href="/working/reports"><i class="fas fa-file-alt me-1"></i>Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div th:if="${successMessage}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            <span th:text="${successMessage}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1><i class="fas fa-users me-2"></i>Students (Working Version)</h1>
+            <a href="/working/students/new" class="btn btn-primary">
+                <i class="fas fa-plus me-1"></i>Add New Student
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Class</th>
+                                <th>Date of Birth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="student : ${students}">
+                                <td th:text="${student.id}"></td>
+                                <td th:text="${student.fullName}"></td>
+                                <td th:text="${student.email}"></td>
+                                <td th:text="${student.phoneNumber}"></td>
+                                <td th:text="${student.studentClass}"></td>
+                                <td th:text="${student.dateOfBirth}"></td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(students)}">
+                                <td colspan="6" class="text-center text-muted">
+                                    No students found. <a href="/working/students/new">Add the first student</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-3">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>This is a working version</strong> that uses in-memory storage instead of database. 
+                Perfect for testing the application functionality!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

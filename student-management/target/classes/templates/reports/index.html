@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Student Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-graduation-cap me-2"></i>Student Management System
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+                <a class="nav-link" href="/students"><i class="fas fa-users me-1"></i>Students</a>
+                <a class="nav-link" href="/marks"><i class="fas fa-chart-line me-1"></i>Marks</a>
+                <a class="nav-link active" href="/reports"><i class="fas fa-file-alt me-1"></i>Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="mb-4"><i class="fas fa-file-alt me-2"></i>Reports</h1>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-user me-2"></i>Individual Student Report</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Generate detailed performance report for a specific student including all marks and overall performance.</p>
+                        <form action="/reports/student" method="get">
+                            <div class="mb-3">
+                                <label for="studentSelect" class="form-label">Select Student:</label>
+                                <select class="form-select" id="studentSelect" name="studentId" required>
+                                    <option value="">Choose a student...</option>
+                                    <option th:each="student : ${students}" 
+                                            th:value="${student.id}" 
+                                            th:text="${student.fullName + ' (' + student.studentClass + ')'}"></option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-file-alt me-1"></i>Generate Report
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-school me-2"></i>Class Report</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Generate report showing all students in a specific class with their basic information.</p>
+                        <form action="/reports/class" method="get">
+                            <div class="mb-3">
+                                <label for="classSelect" class="form-label">Select Class:</label>
+                                <select class="form-select" id="classSelect" name="studentClass" required>
+                                    <option value="">Choose a class...</option>
+                                    <option th:each="class : ${classes}" 
+                                            th:value="${class}" 
+                                            th:text="${class}"></option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-users me-1"></i>Generate Report
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-info-circle me-2"></i>Report Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Individual Student Report includes:</h6>
+                                <ul>
+                                    <li>Complete student information</li>
+                                    <li>All marks across subjects and exam types</li>
+                                    <li>Overall average percentage</li>
+                                    <li>Grade breakdown</li>
+                                    <li>Print-friendly format</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Class Report includes:</h6>
+                                <ul>
+                                    <li>List of all students in the class</li>
+                                    <li>Student contact information</li>
+                                    <li>Basic student details</li>
+                                    <li>Quick overview format</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
