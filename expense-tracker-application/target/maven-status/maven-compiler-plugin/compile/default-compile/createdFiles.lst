@@ -1,0 +1,17 @@
+com\expensetracker\dto\ExpenseReportDto.class
+com\expensetracker\dto\TransactionDto.class
+com\expensetracker\entity\Category.class
+com\expensetracker\controller\TransactionController.class
+com\expensetracker\repository\TransactionRepository.class
+com\expensetracker\service\TransactionService.class
+com\expensetracker\service\ReportService.class
+com\expensetracker\ExpenseTrackerApplication.class
+com\expensetracker\repository\CategoryRepository.class
+com\expensetracker\controller\CategoryController.class
+com\expensetracker\dto\CategoryDto.class
+com\expensetracker\controller\ReportController.class
+com\expensetracker\exception\GlobalExceptionHandler.class
+com\expensetracker\config\WebConfig.class
+com\expensetracker\config\DataInitializer.class
+com\expensetracker\service\CategoryService.class
+com\expensetracker\entity\Transaction.class

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug API</title>
+</head>
+<body>
+    <h1>API Debug Test</h1>
+    <button onclick="testCategories()">Test Categories</button>
+    <button onclick="testTransactions()">Test Transactions</button>
+    <div id="result"></div>
+
+    <script>
+        async function testCategories() {
+            try {
+                console.log('Testing categories API...');
+                const response = await fetch('http://localhost:8081/api/categories');
+                console.log('Response status:', response.status);
+                const data = await response.json();
+                console.log('Categories data:', data);
+                document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        }
+
+        async function testTransactions() {
+            try {
+                console.log('Testing transactions API...');
+                const response = await fetch('http://localhost:8081/api/transactions');
+                console.log('Response status:', response.status);
+                const data = await response.json();
+                console.log('Transactions data:', data);
+                document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

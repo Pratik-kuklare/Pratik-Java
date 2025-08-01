@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Expense Tracker</h1>
+            <p>Track your expenses and manage your budget</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="tab-btn" onclick="showTab('transactions')">Transactions</button>
+            <button class="tab-btn" onclick="showTab('categories')">Categories</button>
+            <button class="tab-btn" onclick="showTab('categorized-expenses')">Categorized Expenses</button>
+            <button class="tab-btn" onclick="showTab('reports')">Reports</button>
+        </nav>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Quick Stats</h3>
+                    <div id="quick-stats">
+                        <div class="stat">
+                            <span class="stat-label">Total Expenses</span>
+                            <span class="stat-value" id="total-expenses">₹0.00</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">This Month</span>
+                            <span class="stat-value" id="month-expenses">₹0.00</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Transactions</span>
+                            <span class="stat-value" id="transaction-count">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Add Quick Expense</h3>
+                    <form id="quick-expense-form">
+                        <input type="text" id="quick-description" placeholder="Description" required>
+                        <input type="number" id="quick-amount" placeholder="Amount" step="0.01" required>
+                        <select id="quick-category" required>
+                            <option value="">Select Category</option>
+                        </select>
+                        <button type="submit">Add Expense</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Recent Transactions</h3>
+                <div id="recent-transactions">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions Tab -->
+        <div id="transactions" class="tab-content">
+            <div class="card">
+                <h3>Add New Transaction</h3>
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                        </select>
+                    </div>
+                    <button type="submit">Add Transaction</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>All Transactions</h3>
+                <div class="table-container">
+                    <table id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-tbody">
+                            <tr><td colspan="5">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Tab -->
+        <div id="categories" class="tab-content">
+            <div class="card">
+                <h3>Add New Category</h3>
+                <form id="category-form">
+                    <div class="form-group">
+                        <label for="category-name">Category Name</label>
+                        <input type="text" id="category-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category-description">Description</label>
+                        <input type="text" id="category-description">
+                    </div>
+                    <button type="submit">Add Category</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h3>All Categories</h3>
+                <div id="categories-list">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorized Expenses Tab -->
+        <div id="categorized-expenses" class="tab-content">
+            <div class="card">
+                <h3>📊 View Expenses by Category</h3>
+                <div class="form-group">
+                    <label for="category-filter">Select Category</label>
+                    <select id="category-filter" onchange="filterExpensesByCategory()">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+                <div id="category-summary" class="category-summary">
+                    <p>Select a category to view expenses</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 id="categorized-expenses-title">All Categorized Expenses</h3>
+                <div id="categorized-expenses-list">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Tab -->
+        <div id="reports" class="tab-content">
+            <div class="card">
+                <h3>Monthly Report</h3>
+                <div class="form-group">
+                    <label for="report-month">Select Month</label>
+                    <input type="month" id="report-month">
+                    <button onclick="generateReport()">Generate Report</button>
+                </div>
+                <div id="report-content">
+                    <p>Select a month to generate report</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

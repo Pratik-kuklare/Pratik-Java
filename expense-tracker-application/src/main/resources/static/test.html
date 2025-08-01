@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Expense Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { padding: 10px; margin: 5px; }
+        .result { margin: 10px 0; padding: 10px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Expense Tracker API Test</h1>
+    
+    <div class="test-section">
+        <h3>Test Categories API</h3>
+        <button onclick="testCategories()">Test Categories</button>
+        <div id="categories-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Transactions API</h3>
+        <button onclick="testTransactions()">Test Transactions</button>
+        <div id="transactions-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Reports API</h3>
+        <button onclick="testReports()">Test Reports</button>
+        <div id="reports-result" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8081/api';
+        
+        async function testCategories() {
+            try {
+                const response = await fetch(`${API_BASE}/categories`);
+                const data = await response.json();
+                document.getElementById('categories-result').innerHTML = 
+                    `<strong>Categories (${data.length}):</strong><br>` + 
+                    JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('categories-result').innerHTML = 
+                    `<strong>Error:</strong> ${error.message}`;
+            }
+        }
+        
+        async function testTransactions() {
+            try {
+                const response = await fetch(`${API_BASE}/transactions`);
+                const data = await response.json();
+                document.getElementById('transactions-result').innerHTML = 
+                    `<strong>Transactions (${data.length}):</strong><br>` + 
+                    data.map(t => `${t.description}: ₹${t.amount} (${t.categoryName})`).join('<br>');
+            } catch (error) {
+                document.getElementById('transactions-result').innerHTML = 
+                    `<strong>Error:</strong> ${error.message}`;
+            }
+        }
+        
+        async function testReports() {
+            try {
+                const response = await fetch(`${API_BASE}/reports/monthly/2025/7`);
+                const data = await response.json();
+                document.getElementById('reports-result').innerHTML = 
+                    `<strong>Monthly Report:</strong><br>` +
+                    `Total: ₹${data.totalAmount}<br>` +
+                    `Transactions: ${data.transactionCount}<br>` +
+                    `Categories: ${Object.keys(data.categoryBreakdown || {}).join(', ')}`;
+            } catch (error) {
+                document.getElementById('reports-result').innerHTML = 
+                    `<strong>Error:</strong> ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>
