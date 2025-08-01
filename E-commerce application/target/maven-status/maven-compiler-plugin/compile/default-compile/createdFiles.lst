@@ -1,0 +1,17 @@
+com\example\ecommerce\service\ProductService.class
+com\example\ecommerce\controller\HomeController.class
+com\example\ecommerce\controller\AdminController.class
+com\example\ecommerce\repository\OrderRepository.class
+com\example\ecommerce\entity\Product.class
+com\example\ecommerce\entity\Order.class
+com\example\ecommerce\config\DataInitializer.class
+com\example\ecommerce\service\CartService.class
+com\example\ecommerce\entity\Order$OrderStatus.class
+com\example\ecommerce\entity\CartItem.class
+com\example\ecommerce\controller\OrderController.class
+com\example\ecommerce\EcommerceApplication.class
+com\example\ecommerce\repository\ProductRepository.class
+com\example\ecommerce\controller\CartController.class
+com\example\ecommerce\repository\CartItemRepository.class
+com\example\ecommerce\service\OrderService.class
+com\example\ecommerce\entity\OrderItem.class
