@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatapp.client.ChatController">
+   <left>
+      <VBox fx:id="sidebar" prefWidth="200.0" styleClass="sidebar">
+         <children>
+            <TabPane styleClass="sidebar-tabs" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Rooms">
+                     <content>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                 <children>
+                                    <Label styleClass="sidebar-title" text="Rooms" />
+                                    <Button fx:id="createRoomButton" styleClass="icon-button" text="+" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <ListView fx:id="roomListView" styleClass="room-list" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab text="Users">
+                     <content>
+                        <VBox>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                 <children>
+                                    <Label styleClass="sidebar-title" text="Online Users" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <ListView fx:id="userListView" styleClass="user-list" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER_LEFT" styleClass="chat-header">
+               <children>
+                  <Button fx:id="toggleSidebarButton" styleClass="toggle-button" text="☰" />
+                  <Label fx:id="currentRoomLabel" styleClass="room-title" text="Select a room" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+            <ScrollPane fx:id="messageScrollPane" fitToWidth="true" styleClass="message-scroll" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox fx:id="messageContainer" styleClass="message-container" />
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="message-input">
+               <children>
+                  <TextField fx:id="messageField" promptText="Type your message..." styleClass="message-field" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="sendButton" styleClass="send-button" text="Send" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

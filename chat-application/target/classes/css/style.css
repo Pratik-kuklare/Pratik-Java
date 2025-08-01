@@ -1,0 +1,222 @@
+/* Root styling */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f8f9fa;
+}
+
+/* Login Window Styles */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-alignment: center;
+    -fx-padding: 0 0 20 0;
+}
+
+.input-field {
+    -fx-font-size: 14px;
+    -fx-padding: 12px;
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.input-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+}
+
+.primary-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 24px;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.status-label {
+    -fx-font-size: 12px;
+    -fx-padding: 10 0 0 0;
+    -fx-alignment: center;
+}
+
+/* Chat Window Styles */
+.sidebar {
+    -fx-background-color: #34495e;
+    -fx-border-color: #2c3e50;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.icon-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: #229954;
+}
+
+.room-list {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.room-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-padding: 10px 15px;
+    -fx-border-color: transparent;
+}
+
+.room-list .list-cell:selected {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+}
+
+.room-list .list-cell:hover {
+    -fx-background-color: #2c3e50;
+}
+
+.chat-header {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.room-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.message-scroll {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+}
+
+.message-container {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+    -fx-spacing: 5px;
+}
+
+.message-input {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 1 0 0 0;
+}
+
+.message-field {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 15px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.message-field:focused {
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+}
+
+.send-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
+.send-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Toggle Sidebar Button */
+.toggle-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 12px;
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c3e50;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+    -fx-min-width: 40px;
+    -fx-min-height: 35px;
+}
+
+.toggle-button:hover {
+    -fx-background-color: #ecf0f1;
+}
+
+.toggle-button:pressed {
+    -fx-background-color: #bdc3c7;
+}
+
+/* Tab Pane Styling */
+.tab-pane {
+    -fx-tab-min-width: 100px;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #ecf0f1;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5 5 0 0;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: white;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Scroll Bar Styling */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: #ecf0f1;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #95a5a6;
+}
