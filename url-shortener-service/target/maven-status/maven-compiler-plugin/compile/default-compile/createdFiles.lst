@@ -1,0 +1,12 @@
+com\urlshortener\entity\ClickEvent.class
+com\urlshortener\dto\ShortenUrlRequest.class
+com\urlshortener\entity\Url.class
+com\urlshortener\service\UrlShortenerService.class
+com\urlshortener\dto\UrlAnalytics$DailyClickStats.class
+com\urlshortener\repository\UrlRepository.class
+com\urlshortener\controller\UrlController.class
+com\urlshortener\dto\ShortenUrlResponse.class
+com\urlshortener\dto\UrlAnalytics.class
+com\urlshortener\UrlShortenerApplication.class
+com\urlshortener\repository\ClickEventRepository.class
+com\urlshortener\controller\AnalyticsController.class
